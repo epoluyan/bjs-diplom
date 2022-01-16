@@ -7,7 +7,7 @@ userform.loginFormCallback = data => {
         const login = data.login;
         const password = data.password;
         ApiConnector.login({ login, password }, response => {
-            if (response.success === false) {
+            if (!response.success) {
                 userform.setLoginErrorMessage(response.error);
             }
             else {
@@ -24,7 +24,7 @@ userform.registerFormCallback = data => {
         const login = data.login;
         const password = data.password;
         ApiConnector.register({ login, password }, response => {
-            if (response.success === false) {
+            if (!response.success) {
                 userform.registerErrorMessageBox(response)
             }
             else {
